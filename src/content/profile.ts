@@ -105,8 +105,7 @@ export const projects: Project[] = [
     decisions:
       "Serverless API on Azure Functions over Azure SQL, modeled as fact and dimension tables that Power BI reads directly for insights. Evidence images live in Azure Blob Storage behind short-lived SAS URLs. Deployed to Azure Static Web Apps with GitHub Actions CI/CD.",
     results:
-      "Live at greenblnk.com, replacing scattered spreadsheets with one source of truth for GreenMetric data across three campuses.",
-    live: "https://greenblnk.com",
+      "In production, replacing scattered spreadsheets with one source of truth for GreenMetric data across three campuses.",
     shots: [
       { src: "/projects/greenblnk-overview.png", alt: "GreenBlnk overview with record counts and upload history" },
       { src: "/projects/greenblnk-values.png", alt: "GreenBlnk values table by variable and campus" },
