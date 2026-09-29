@@ -6,6 +6,7 @@ import { projects, type Project } from "@/content/profile";
 import { ArrowLeftIcon, ArrowRightIcon, CloseIcon, CodeIcon, ExternalIcon } from "./icons";
 
 const GAP = 24;
+const CARD_TAGS = 3;
 
 export function Projects() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -76,15 +77,16 @@ export function Projects() {
               <p className="project-tagline">{p.tagline}</p>
               <div className="project-foot">
                 <ul className="tags" aria-label="Stack">
-                  {p.stack.map((s, i) => (
-                    <li key={i} className="tag">
+                  {p.stack.slice(0, CARD_TAGS).map((s) => (
+                    <li key={s} className="tag">
                       {s}
                     </li>
                   ))}
+                  {p.stack.length > CARD_TAGS && <li className="tag">+{p.stack.length - CARD_TAGS}</li>}
                 </ul>
                 <div className="icon-links">
                   {p.live && (
-                    <a className="btn btn-light icon-btn" href={p.live} target="_blank" rel="noreferrer" aria-label={`${p.title} — live site`}>
+                    <a className="btn btn-light icon-btn" href={p.live} target="_blank" rel="noreferrer" aria-label={`${p.title} — ${p.liveLabel ?? "live site"}`}>
                       <ExternalIcon />
                     </a>
                   )}
@@ -129,6 +131,13 @@ export function Projects() {
                 <CloseIcon size={18} />
               </button>
             </div>
+            <div className={`gallery gallery-${Math.min(current.shots.length, 3)}`}>
+              {current.shots.map((shot) => (
+                <a key={shot.src} className="gallery-item" href={shot.src} target="_blank" rel="noreferrer">
+                  <Image src={shot.src} alt={shot.alt} width={1600} height={1000} sizes="(max-width: 760px) 90vw, 400px" />
+                </a>
+              ))}
+            </div>
             <div className="details">
               <Detail title="What I built" text={current.built} />
               <Detail title="Technical decisions" text={current.decisions} />
@@ -151,7 +160,7 @@ export function Projects() {
                   )}
                   {current.live && (
                     <a className="btn btn-dark" href={current.live} target="_blank" rel="noreferrer">
-                      Visit live ↗
+                      {current.liveLabel ?? "Visit live"} ↗
                     </a>
                   )}
                 </div>
@@ -173,52 +182,20 @@ function Detail({ title, text }: { title: string; text: string }) {
   );
 }
 
-const POS_TILES = [
-  { dot: "#E9D8C4", bar: "70%" },
-  { dot: "var(--accent-soft)", bar: "55%", active: true },
-  { dot: "#D9C3A8", bar: "64%" },
-  { dot: "#EFE2D2", bar: "48%" },
-];
-
 function Preview({ project }: { project: Project }) {
-  if (project.image) {
-    return (
-      <div className="preview">
-        <Image src={project.image} alt="" fill sizes="(max-width: 640px) 90vw, 520px" className="preview-img" />
-      </div>
-    );
-  }
-
-  if (project.mockup === "pos") {
-    return (
-      <div className="preview preview-pos" aria-hidden="true">
-        <div className="pos-grid">
-          {POS_TILES.map((t, i) => (
-            <div key={i} className={`pos-tile${t.active ? " is-active" : ""}`}>
-              <div className="pos-dot" style={{ background: t.dot }} />
-              <div className="bar" style={{ width: t.bar }} />
-            </div>
-          ))}
-        </div>
-        <div className="pos-ticket">
-          <div className="bar dark" />
-          <div className="bar" style={{ width: "80%" }} />
-          <div className="bar" style={{ width: "64%" }} />
-          <div className="pos-pay" />
-        </div>
-      </div>
-    );
-  }
-
+  const [from, to] = project.tint;
+  const cover = project.shots[0];
   return (
-    <div className="preview preview-generic" aria-hidden="true">
-      <div className="browser">
-        <div className="browser-bar">
+    <div className="preview" style={{ background: `linear-gradient(160deg, ${from}, ${to})` }}>
+      <div className="window">
+        <div className="window-bar" aria-hidden="true">
           <span />
           <span />
           <span />
         </div>
-        <div className="browser-body">[Screenshot / mockup]</div>
+        <div className="window-body">
+          <Image src={cover.src} alt={cover.alt} fill sizes="(max-width: 640px) 100vw, 640px" className="window-img" />
+        </div>
       </div>
     </div>
   );

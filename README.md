@@ -25,8 +25,10 @@ education and links. Styles and design tokens (colors, accent, spacing) are in
 - [ ] Add your CV as `public/cv.pdf`
 - [ ] Set your LinkedIn and GitHub URLs in `profile.links`
 - [ ] Optional: add a photo to `public/` and set `profile.photo`
-- [ ] Fill in the `[bracketed]` placeholders for projects 01–03 and the Sperantus outcome
-- [ ] Add `live` / `code` URLs and an `image` screenshot for each project
+- [ ] Fill in the `[bracketed]` Sperantus outcome
+
+Project screenshots live in `public/projects/` (1600px wide PNGs). Open POS uses the captures from its
+own repo; BiblioTrack was captured with a generated demo roster; GreenBlnk from the running app.
 
 ## Structure
 
