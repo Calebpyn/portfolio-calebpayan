@@ -8,8 +8,8 @@ export const profile = {
   email: "calebpayan75@gmail.com",
   location: "Culiacán, MX · UTC−7",
   availability: "Open to remote roles",
-  // Optional: drop a square photo in /public and set e.g. "/caleb.jpg".
-  photo: null as string | null,
+  // Square photo in /public (cropped from the GitHub avatar).
+  photo: "/caleb.jpg" as string | null,
   // Replace /public/cv.pdf to update the downloadable CV.
   cv: "/cv.pdf",
   links: {
