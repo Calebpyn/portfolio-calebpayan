@@ -20,7 +20,7 @@ export const profile = {
     { label: "Based in", value: "Culiacán, MX · UTC−7" },
     { label: "Focus", value: "Fullstack · AI products" },
     { label: "Core", value: "React · Next.js · TS · Node" },
-    { label: "Education", value: "B.S. SWE, Cum Laude · MBA" },
+    { label: "Education", value: "B.S. SWE · Cum Laude" },
     { label: "Languages", value: "Spanish · English C1" },
   ],
 };
@@ -147,5 +147,4 @@ export const education = [
     after: " — Cum Laude, Medal of Honor",
   },
   { detail: "Exchange, ", school: "Korea University", after: ", Seoul 2025" },
-  { detail: "", school: "MBA", after: " — in progress" },
 ];
