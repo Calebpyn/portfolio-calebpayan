@@ -20,12 +20,9 @@ All copy lives in [`src/content/profile.ts`](src/content/profile.ts): projects, 
 education and links. Styles and design tokens (colors, accent, spacing) are in
 [`src/app/globals.css`](src/app/globals.css) — change `--accent` to re-theme the whole site.
 
-### Before publishing
+### Updating the CV
 
-- [ ] Add your CV as `public/cv.pdf`
-- [ ] Set your LinkedIn and GitHub URLs in `profile.links`
-- [ ] Optional: add a photo to `public/` and set `profile.photo`
-- [ ] Fill in the `[bracketed]` Sperantus outcome
+Replace `public/cv.pdf`; the site copy in `profile.ts` mirrors it, so update both together.
 
 Project screenshots live in `public/projects/` (1600px wide PNGs). Open POS uses the captures from its
 own repo; BiblioTrack was captured with a generated demo roster; GreenBlnk from the running app.

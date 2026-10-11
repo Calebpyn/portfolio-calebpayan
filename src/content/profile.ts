@@ -1,5 +1,5 @@
 // Everything the site says lives here. Edit this file to update the portfolio.
-// Anything still in [brackets] is a placeholder to replace before publishing.
+// Content mirrors the CV in /public/cv.pdf.
 
 export const profile = {
   name: "Caleb Payán",
@@ -10,17 +10,18 @@ export const profile = {
   availability: "Open to remote roles",
   // Optional: drop a square photo in /public and set e.g. "/caleb.jpg".
   photo: null as string | null,
-  // Drop your CV at /public/cv.pdf.
+  // Replace /public/cv.pdf to update the downloadable CV.
   cv: "/cv.pdf",
   links: {
-    linkedin: "https://www.linkedin.com/in/[your-handle]",
-    github: "https://github.com/[your-handle]",
+    linkedin: "https://www.linkedin.com/in/caleb-payan",
+    github: "https://github.com/Calebpyn",
   },
   facts: [
     { label: "Based in", value: "Culiacán, MX · UTC−7" },
     { label: "Focus", value: "Fullstack · AI products" },
     { label: "Core", value: "React · Next.js · TS · Node" },
-    { label: "Education", value: "B.S. SWE · MBA in progress" },
+    { label: "Education", value: "B.S. SWE, Cum Laude · MBA" },
+    { label: "Languages", value: "Spanish · English C1" },
   ],
 };
 
@@ -83,7 +84,7 @@ export const projects: Project[] = [
     decisions:
       "Dual-window Electron app over a contextBridge IPC layer. A unified API lets the same dashboard run locally over IPC or from any browser on the campus LAN over REST and Server-Sent Events, with admin approval for new devices. SQLite tuned with WAL, mmap and index-friendly range queries; idempotent schema migrations.",
     results:
-      "Built at the library's request to report attendance for accreditation. 117 automated tests across 8 suites; Windows installer built with electron-builder in GitHub Actions.",
+      "Automates entry logging, counting and reporting for the library's institutional accreditation. Requirements gathered directly with library staff. 117 automated tests across 8 suites; Windows installer built with electron-builder in GitHub Actions.",
     code: "https://github.com/Calebpyn/bibliotrack",
     shots: [
       { src: "/projects/bibliotrack-dashboard.png", alt: "BiblioTrack dashboard with monthly entries by day and by program (demo data)" },
@@ -101,11 +102,11 @@ export const projects: Project[] = [
       "The platform CETYS campuses use to collect the sustainability data they submit to the UI GreenMetric World University Rankings.",
     stack: ["React", "TypeScript", "MUI", "Azure Functions", "Azure SQL", "Power BI"],
     built:
-      "Led the development team for INESU. The web app covers a catalog of categories and variables, reporting cycles, Excel templates generated per cycle, file upload with preview and validation, manual entry, a values explorer across the Mexicali, Tijuana and Ensenada campuses, and evidence photo uploads.",
+      "Led the development team for INESU and ran requirements gathering and delivery directly with institutional stakeholders. The web app covers a catalog of categories and variables, reporting cycles, Excel templates generated per cycle, file upload with preview and validation, manual entry, a values explorer across the Mexicali, Tijuana and Ensenada campuses, and evidence photo uploads.",
     decisions:
-      "Serverless API on Azure Functions over Azure SQL, modeled as fact and dimension tables that Power BI reads directly for insights. Evidence images live in Azure Blob Storage behind short-lived SAS URLs. Deployed to Azure Static Web Apps with GitHub Actions CI/CD.",
+      "Redesigned the architecture mid-project: replaced an evaluation-cycle model with a flat star-schema fact table that Power BI reads directly, and moved data capture from manual Excel uploads to a CRM-style portal. Serverless API on Azure Functions over Azure SQL. Evidence images live in Azure Blob Storage behind short-lived SAS URLs. Deployed to Azure Static Web Apps with GitHub Actions CI/CD.",
     results:
-      "In production, replacing scattered spreadsheets with one source of truth for GreenMetric data across three campuses.",
+      "In production for CETYS's Sustainability Institute, supporting a global accreditation held by fewer than 50 universities worldwide, with one source of truth across three campuses.",
     shots: [
       { src: "/projects/greenblnk-overview.png", alt: "GreenBlnk overview with record counts and upload history" },
       { src: "/projects/greenblnk-values.png", alt: "GreenBlnk values table by variable and campus" },
@@ -116,35 +117,35 @@ export const projects: Project[] = [
 
 export const experience = [
   {
-    period: "4+ years — Present",
-    role: "Fullstack Developer",
-    company: "Founder, blancspace — web agency",
+    period: "2021 — Present",
+    role: "Full-Stack Developer",
+    company: "Freelance · blancspace",
     summary:
-      "Design, build and ship websites and web apps end to end for clients across legal, real estate, hospitality and religious organizations.",
-    tags: ["Legal", "Real estate", "Hospitality", "Religious orgs"],
+      "A one-person dev team: scoping, quoting, building and supporting web platforms for an immigration law firm, a real estate agency, a US-based church and a 2025 Culinary Awards–recognized restaurant — choosing the stack (React, Next.js and others) to fit each client.",
+    tags: ["Legal", "Real estate", "Faith-based", "Hospitality"],
   },
   {
     period: "May — Oct 2024",
-    role: "Frontend Developer",
+    role: "Frontend Developer Intern",
     company: "Sperantus — logistics SaaS",
     summary:
-      "Built interface features in Vue.js for Pack & Trace, a logistics tracking platform. [Add one concrete outcome.]",
-    tags: ["Vue.js", "SaaS"],
+      "Shipped UI features in Vue.js for Pack & Trace, a production SaaS used by international enterprise clients, working inside an established engineering team and codebase.",
+    tags: ["Vue.js", "SaaS", "Enterprise"],
   },
 ];
 
 export const stack = {
-  frontend: ["React", "Next.js", "TypeScript"],
-  backend: ["Node.js", "Go", "Python", "Supabase", "Azure SQL"],
-  automation: ["Azure", "Electron", "n8n", "Power BI"],
+  frontend: ["React", "Next.js", "Vue.js", "Tailwind CSS", "TypeScript"],
+  backend: ["Node.js", "Python", "FastAPI", "Go", "PostgreSQL", "Azure SQL", "SQLite", "Redis"],
+  automation: ["Azure Functions", "Supabase", "Electron", "Docker", "Power BI", "n8n", "Twilio"],
 };
 
 export const education = [
   {
     detail: "B.S. Software Engineering, ",
     school: "CETYS Universidad",
-    after: " — Medal of Honor",
+    after: " — Cum Laude, Medal of Honor",
   },
-  { detail: "Exchange semester, ", school: "Korea University", after: ", Seoul" },
+  { detail: "Exchange, ", school: "Korea University", after: ", Seoul 2025" },
   { detail: "", school: "MBA", after: " — in progress" },
 ];

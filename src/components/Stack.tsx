@@ -33,7 +33,7 @@ export function Stack() {
           </ul>
         </div>
         <div className="tile tile-wide">
-          <h3 className="tile-label">Cloud, desktop &amp; analytics</h3>
+          <h3 className="tile-label">Platforms &amp; tools</h3>
           <ul className="chips">
             {stack.automation.map((s) => (
               <li key={s} className="chip chip-md chipf">
